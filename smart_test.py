@@ -25,6 +25,7 @@ class State(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     componentId = db.Column(db.String(64), unique=True, index=True)
     action = db.Column(db.String(64))
+    type = db.Column(db.String(64))
 
     def __repr__(self):
         return '<State %r, %r>' % self.componentId, self.action
@@ -42,7 +43,8 @@ class Pair(db.Model):
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    states = State.query.all()
+    return render_template('home.html', states=states)
 
 
 @app.route('/addnew')
@@ -57,9 +59,10 @@ def addrec():
             print("$$$$")
             cid = request.form.get('cid')
             action = request.form.get('action')
+            type = request.form.get('type')
             print cid
             print action
-            state = State(componentId=cid, action=action)
+            state = State(componentId=cid, action=action,type=type)
             print cid
             db.session.add(state)
             db.session.commit()
@@ -67,7 +70,8 @@ def addrec():
         except:
             msg = "error in insert operation"
         finally:
-            return render_template('result.html', msg=msg)
+            states = State.query.all()
+            return render_template('home.html', msg=msg, states=states)
 
 
 @app.route('/list')

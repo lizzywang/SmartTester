@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="static/style.css" rel="stylesheet">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <form action = "{{ url_for('addrec') }}" method = "POST">
          <h3>State Information</h3>
          componentId<br>
-         <input type = "text" name = "cid" /></br>
+         <input class="form-control" type = "text" name = "cid" /></br>
 
          Action<br>
-         <textarea name = "action" ></textarea><br>
+         <input class="form-control" name = "action" ></input><br>
 
-         <input type = "submit" value = "submit" /><br>
+         <input class="form-control" type = "submit" value = "submit" /><br>
       </form>
 </body>
 </html>
