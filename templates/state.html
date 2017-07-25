@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="static/style.css" rel="stylesheet">
+
+</head>
+<body>
+<form action = "{{ url_for('addrec') }}" method = "POST">
+         <h3>State Information</h3>
+         componentId<br>
+         <input type = "text" name = "cid" /></br>
+
+         Action<br>
+         <textarea name = "action" ></textarea><br>
+
+         <input type = "submit" value = "submit" /><br>
+      </form>
+</body>
+</html>
