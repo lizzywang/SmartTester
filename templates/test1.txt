@@ -1,0 +1,9 @@
+Test Plan 1
+    Then I tap Tab with ID A11yIdentifiers.kJobTabBarItem
+    Then I scrollToBottom UIScrollView with ID A11yIdentifiers.kJobFeedTableView
+Test Plan 2
+    Then I tap Tab with ID A11yIdentifiers.kJobTabBarItem
+    Then I click UIScrollView with ID A11yIdentifiers.kJobFeedTableView
+Test Plan 3
+    Then I tap Tab with ID A11yIdentifiers.kJobTabBarItem
+    Then I tap Button with ID A11yIdentifiers.kRecommendationPrefButton

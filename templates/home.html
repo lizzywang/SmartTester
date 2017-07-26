@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.7.17/go-debug.js"></script>
+    <script src="static/go2.js"></script>
     <script id="code">
         function init() {
             if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
@@ -265,7 +265,7 @@
             myDiagram.isModified = false;
             console.log(myPalette.model.toJson());
 //            $.post({url:"/addrec",async:false});
-            $.post("/mySaveModel",
+            $.post("/saveMyModel",
                 {
                     mySaveModel:myDiagram.model.toJson()
                 });
@@ -406,6 +406,7 @@
             <input class="form-control" type = "submit" value = "submit" /><br>
         </form></nav>
     <aside>
+        <div>
         <table class="table table-bordered">
             <thead>
             <td>Id</td>
@@ -424,8 +425,26 @@
             </tr>
             {% endfor %}
         </table>
-
+        <button type="button" class="btn btn-default" onclick="generate()">Generate Test Code</button>
+        <textarea id ="myTestArea"></textarea>
+        </div>
         <!--<a href = "/">Go back to home page</a></aside>-->
+
+        <script>
+        function generate(){
+            $.post("/generate_test_plan",
+            {
+               "links" : "1,2,1,3,1,4",
+               "start" : 1,
+               "end" : -1
+
+            }, function(data) {
+                $("#myTestArea").html(data)
+            }
+
+            );
+        }
+        </script>
 </div>
 </body>
 </html>
